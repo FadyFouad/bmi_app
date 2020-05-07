@@ -5,15 +5,32 @@ import 'package:flutter/material.dart';
 ///****************************************************
 
 class MyCard extends StatelessWidget {
+  final Text cardLable;
+  final Color cardColor;
+  final Icon cardIcon;
+
+  const MyCard(
+      {Key key,
+      @required this.cardLable,
+      @required this.cardColor,
+      @required this.cardIcon})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        child: Column(
+          children: <Widget>[
+            cardIcon,
+            cardLable,
+          ],
+        ),
 //      color: Color(0xff1d1e33),
         margin: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).primaryColor,
+          color: cardColor,
         ),
       ),
     );

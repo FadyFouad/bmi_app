@@ -48,22 +48,52 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: <MyCard>[
-                  MyCard(),
-                  MyCard(),
+                  MyCard(
+                    cardLable: Text('r1'),
+                    cardIcon: Icon(Icons.ac_unit),
+                    cardColor: Theme.of(context).primaryColor,
+                  ),
+                  MyCard(
+                    cardLable: Text('r1'),
+                    cardIcon: Icon(Icons.ac_unit),
+                    cardColor: Theme.of(context).primaryColor,
+                  ),
                 ],
               ),
             ),
             Expanded(
-              child: MyCard(),
+              child: Container(
+                width: double.infinity,
+                child: MyCard(
+                  cardLable: Text('r2'),
+                  cardIcon: Icon(Icons.ac_unit),
+                  cardColor: Theme.of(context).primaryColor,
+                ),
+              ),
             ),
             Expanded(
               child: Row(
                 children: <MyCard>[
-                  MyCard(),
-                  MyCard(),
+                  MyCard(
+                    cardLable: Text('r3'),
+                    cardIcon: Icon(Icons.ac_unit),
+                    cardColor: Theme.of(context).primaryColor,
+                  ),
+                  MyCard(
+                    cardLable: Text('r3'),
+                    cardIcon: Icon(Icons.ac_unit),
+                    cardColor: Theme.of(context).primaryColor,
+                  ),
                 ],
               ),
             ),
+            Container(
+              child: Text(''),
+              color: Colors.red,
+              margin: EdgeInsets.only(top: 8.0),
+              width: double.infinity,
+              height: 100.0,
+            )
           ],
         ),
       ),
