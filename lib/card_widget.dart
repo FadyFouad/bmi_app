@@ -5,15 +5,13 @@ import 'package:flutter/material.dart';
 ///****************************************************
 
 class MyCard extends StatelessWidget {
-  final Text cardLable;
   final Color cardColor;
-  final Icon cardIcon;
+  final Widget cardChild;
 
   const MyCard(
       {Key key,
-      @required this.cardLable,
       @required this.cardColor,
-      @required this.cardIcon})
+      @required this.cardChild})
       : super(key: key);
 
   @override
@@ -22,8 +20,7 @@ class MyCard extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            cardIcon,
-            cardLable,
+            cardChild
           ],
         ),
 //      color: Color(0xff1d1e33),
