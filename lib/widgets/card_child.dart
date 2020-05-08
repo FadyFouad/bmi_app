@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../constaants.dart';
+
 ///****************************************************
 ///*** Created by Fady Fouad on 08-May-20 at 03:52.***
 ///****************************************************
-
-const kLabelSize = 22.0;
 
 class CardChild extends StatelessWidget {
   final String label;
@@ -23,7 +23,7 @@ class CardChild extends StatelessWidget {
       children: <Widget>[
         icon,
         SizedBox(height: 16.0,),
-        Text(label,style: TextStyle(fontSize: kLabelSize),),
+        Text(label, style: TextStyle(fontSize: kTextSize),),
       ],
     );
   }

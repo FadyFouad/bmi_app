@@ -2,14 +2,19 @@ import 'package:bmiapp/widgets/card_child.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'widgets/card_widget.dart';
+import '../constaants.dart';
+import '../widgets/card_widget.dart';
 
 ///****************************************************
 ///*** Created by Fady Fouad on 07-May-20 at 05:53.***
 ///****************************************************
 
-const kMALE = 'MALE';
-const kFEMALE = 'FEMALE';
+enum Gender {
+  male,
+  female,
+}
+
+Gender selectedGender = Gender.male;
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -34,21 +39,35 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: <MyCard>[
                   MyCard(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
                     cardChild: CardChild(
                       label: kMALE,
                       icon: Icon(
                         FontAwesomeIcons.male,
-                        size: 80.0,
+                        size: kIconSize,
                       ),
                     ),
-                    cardColor: Theme.of(context).primaryColor,
+                    cardColor: selectedGender == Gender.male
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                   ),
                   MyCard(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                     cardChild: CardChild(
                       label: kFEMALE,
-                      icon: Icon(FontAwesomeIcons.female, size: 80.0),
+                      icon: Icon(FontAwesomeIcons.female, size: kIconSize),
                     ),
-                    cardColor: Theme.of(context).primaryColor,
+                    cardColor: selectedGender == Gender.female
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                   ),
                 ],
               ),
@@ -77,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Text('r3'),
                         Icon(
                           FontAwesomeIcons.female,
-                          size: 80.0,
+                          size: kIconSize,
                         ),
                       ],
                     ),
@@ -99,8 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              child: Text(''),
-              color: Colors.red,
+              child: Center(child: Text(
+                'Calculate', style: TextStyle(fontSize: kTextSize),)),
+              color: kActiveCardColor,
               margin: EdgeInsets.only(top: 8.0),
               width: double.infinity,
               height: 100.0,

@@ -8,8 +8,10 @@ import 'package:flutter/material.dart';
 class MyCard extends StatelessWidget {
   final Color cardColor;
   final Widget cardChild;
+  final Function onTap;
 
-  const MyCard({Key key, @required this.cardColor, @required this.cardChild})
+  const MyCard(
+      {Key key, @required this.cardColor, @required this.cardChild, @required this.onTap})
       : super(key: key);
 
   @override
@@ -17,9 +19,7 @@ class MyCard extends StatelessWidget {
     return Expanded(
       child: InkWell(
         borderRadius: BorderRadius.circular(8.0),
-        onTap: () {
-          //Todo on tapped
-        },
+        onTap: onTap,
         child: Container(
 //      color: Color(0xff1d1e33),
           margin: EdgeInsets.all(16.0),

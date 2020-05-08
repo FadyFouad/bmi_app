@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'constaants.dart';
+import 'screens/home_page.dart';
 
 
 void main() => runApp(MyApp());
@@ -22,8 +23,11 @@ class MyApp extends StatelessWidget {
 //        const Locale('ar'), // Arabic
 //      ],
       title: 'myLocale.toString()',
-      theme: ThemeData.dark().copyWith(),
-      home: MyHomePage(title: "Error"),
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Color(0xff000000),
+        accentColor: Color(0xffEB1555),
+      ),
+      home: MyHomePage(title: kTitle),
     );
   }
 }
