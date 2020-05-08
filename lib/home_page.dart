@@ -1,12 +1,15 @@
+import 'package:bmiapp/widgets/card_child.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'card_widget.dart';
+import 'widgets/card_widget.dart';
 
 ///****************************************************
 ///*** Created by Fady Fouad on 07-May-20 at 05:53.***
 ///****************************************************
 
+const kMALE = 'MALE';
+const kFEMALE = 'FEMALE';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -27,32 +30,29 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             Expanded(
+              //Top To widgets
               child: Row(
                 children: <MyCard>[
                   MyCard(
-                    cardChild: Column(
-                      children: <Widget>[
-                        Text('r3'),
-                        Icon(Icons.ac_unit),
-                      ],
+                    cardChild: CardChild(
+                      label: kMALE,
+                      icon: Icon(
+                        FontAwesomeIcons.male,
+                        size: 80.0,
+                      ),
                     ),
-                    cardColor: Theme
-                        .of(context)
-                        .primaryColor,
+                    cardColor: Theme.of(context).primaryColor,
                   ),
                   MyCard(
-                    cardChild: Column(
-                      children: <Widget>[
-                        Text('r3'),
-                        Icon(Icons.ac_unit),
-                      ],
+                    cardChild: CardChild(
+                      label: kFEMALE,
+                      icon: Icon(FontAwesomeIcons.female, size: 80.0),
                     ),
-                    cardColor: Theme
-                        .of(context)
-                        .primaryColor,
+                    cardColor: Theme.of(context).primaryColor,
                   ),
                 ],
               ),
+              //////////////////////////////////////////////////////////////////
             ),
             Expanded(
               child: Container(
@@ -64,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icon(Icons.ac_unit),
                     ],
                   ),
-                  cardColor: Theme
-                      .of(context)
-                      .primaryColor,
+                  cardColor: Theme.of(context).primaryColor,
                 ),
               ),
             ),
@@ -77,23 +75,25 @@ class _MyHomePageState extends State<MyHomePage> {
                     cardChild: Column(
                       children: <Widget>[
                         Text('r3'),
-                        Icon(FontAwesomeIcons.female, size: 80.0,),
+                        Icon(
+                          FontAwesomeIcons.female,
+                          size: 80.0,
+                        ),
                       ],
                     ),
-                    cardColor: Theme
-                        .of(context)
-                        .primaryColor,
+                    cardColor: Theme.of(context).primaryColor,
                   ),
                   MyCard(
                     cardChild: Column(
                       children: <Widget>[
                         Text('r3'),
-                        Icon(FontAwesomeIcons.male, size: 80.0,),
+                        Icon(
+                          FontAwesomeIcons.male,
+                          size: 80.0,
+                        ),
                       ],
                     ),
-                    cardColor: Theme
-                        .of(context)
-                        .primaryColor,
+                    cardColor: Theme.of(context).primaryColor,
                   ),
                 ],
               ),
