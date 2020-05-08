@@ -11,7 +11,7 @@ class MyCard extends StatelessWidget {
   final Function onTap;
 
   const MyCard(
-      {Key key, @required this.cardColor, @required this.cardChild, @required this.onTap})
+      {Key key, @required this.cardColor, @required this.cardChild, this.onTap})
       : super(key: key);
 
   @override

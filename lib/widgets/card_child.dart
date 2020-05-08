@@ -23,7 +23,7 @@ class CardChild extends StatelessWidget {
       children: <Widget>[
         icon,
         SizedBox(height: 16.0,),
-        Text(label, style: TextStyle(fontSize: kTextSize),),
+        Text(label, style: kTextStyle),
       ],
     );
   }

@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xff000000),
         accentColor: Color(0xffEB1555),
+
+
       ),
       home: MyHomePage(title: kTitle),
     );
