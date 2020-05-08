@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../constaants.dart';
 import 'card_widget.dart';
@@ -41,39 +40,60 @@ class AddRemWidgetChild extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FloatingActionButton(
-                      onPressed: onDecreased,
-                      child: Icon(
-                        FontAwesomeIcons.minus,
-                        color: Colors.white,
-                      ),
-                      backgroundColor:
-                          Theme.of(context).accentColor.withOpacity(.6),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0)),
-                    ),
+                    FABWidget(onPressed: onDecreased, icon: Icons.add,),
                     SizedBox(
                       width: 16.0,
                     ),
-                    FloatingActionButton(
-                      onPressed: onIncreased,
-                      child: Icon(
-                        FontAwesomeIcons.plus,
-                        color: Colors.white,
-                      ),
-                      backgroundColor:
-                          Theme.of(context).accentColor.withOpacity(.6),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0)),
-                    ),
+                    FABWidget(onPressed: onIncreased, icon: Icons.add,),
                   ],
                 ),
               ],
             ),
-            cardColor: Theme.of(context).primaryColor,
+            cardColor: Theme
+                .of(context)
+                .primaryColor,
           ),
         ],
       ),
     );
   }
 }
+
+class FABWidget extends StatelessWidget {
+  const FABWidget({
+    Key key,
+    @required this.onPressed, this.icon,
+  }) : super(key: key);
+
+  final Function onPressed;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      elevation: 0.0,
+      child: Icon(icon),
+      onPressed: onPressed,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      fillColor: Theme
+          .of(context)
+          .accentColor
+          .withOpacity(.6),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0)),
+//      fillColor: Color(0xFF4C4F5E),
+    );
+  }
+}
+//onPressed: onIncreased,
+//child: Icon(
+//FontAwesomeIcons.plus,
+//color: Colors.white,
+//),
+//backgroundColor:
+//Theme.of(context).accentColor.withOpacity(.6),
+//shape: RoundedRectangleBorder(
+//borderRadius: BorderRadius.circular(16.0)),

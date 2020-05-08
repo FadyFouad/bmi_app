@@ -1,6 +1,8 @@
+import 'package:bmiapp/calculator.dart';
+import 'package:bmiapp/screens/results_page.dart';
+import 'package:bmiapp/widgets/calc_button.dart';
 import 'package:bmiapp/widgets/card_child.dart';
 import 'package:bmiapp/widgets/exp_weight_age.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -38,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
+        width: double.infinity,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -162,31 +165,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ]),
             ),
-            Container(
-              child: Center(
-                  child: Text(
-                    'Calculate',
-                    style: TextStyle(fontSize: kTextSize),
-                  )),
-              color: kActiveCardColor,
-              margin: EdgeInsets.only(top: 8.0),
-              width: double.infinity,
-              height: 100.0,
-            ),
+            CalcBtnWidget(
+                text: kCalc,
+                onPressed: () {
+                  Calculator calc =
+                  Calculator(height: userHeight, weight: userWeight);
+//                  calc.calculateBMI();
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ResultsPage(
+                      bmiResult: calc.calculateBMI(),
+                      interpretation: calc.getInterpretation(),
+                      resultText: calc.getResult(),
+                    );
+                  }));
+                }),
           ],
         ),
       ),
     );
   }
-
-//  void onDecreased(int input){
-//    setState(() {
-//      input--;
-//    });
-//  }
-//  void onIncreased(int input){
-//    setState(() {
-//      input++;
-//    });
-//  }
 }

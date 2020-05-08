@@ -1,3 +1,4 @@
+import 'package:bmiapp/screens/results_page.dart';
 import 'package:flutter/material.dart';
 
 import 'constaants.dart';
@@ -10,7 +11,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 //    Locale myLocale = Localizations.localeOf(context);
-
     return MaterialApp(
 //      locale: Locale("en"),
 //      localizationsDelegates: [
@@ -26,10 +26,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xff000000),
         accentColor: Color(0xffEB1555),
-
-
+        scaffoldBackgroundColor: Color(0xff212121),
       ),
-      home: MyHomePage(title: kTitle),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(title: kTitle),
+        ResultsPage.routeName: (context) => ResultsPage(),
+      },
+//      home: MyHomePage(title: kTitle),
     );
   }
 }
