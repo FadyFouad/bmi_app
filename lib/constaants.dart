@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 ///*** Created by Fady Fouad on 08-May-20 at 04:54.***
 ///****************************************************
 
-const kTitle = 'Change this';
-const kResultTitle = 'kResultTitle';
+const kTitle = 'BMI Calculator';
+const kResultTitle = 'Your BMI';
 const kYourResult = 'Your Result';
 const kMALE = 'MALE';
 const kFEMALE = 'FEMALE';

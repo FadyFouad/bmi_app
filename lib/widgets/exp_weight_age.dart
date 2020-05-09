@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../constaants.dart';
 import 'card_widget.dart';
@@ -40,11 +41,13 @@ class AddRemWidgetChild extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FABWidget(onPressed: onDecreased, icon: Icons.add,),
+                    FABWidget(
+                      onPressed: onDecreased, icon: FontAwesomeIcons.minus,),
                     SizedBox(
                       width: 16.0,
                     ),
-                    FABWidget(onPressed: onIncreased, icon: Icons.add,),
+                    FABWidget(
+                      onPressed: onIncreased, icon: FontAwesomeIcons.plus,),
                   ],
                 ),
               ],

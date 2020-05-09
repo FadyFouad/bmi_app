@@ -1,5 +1,6 @@
-import 'package:bmiapp/screens/results_page.dart';
+import 'package:bmiapp/Localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'constaants.dart';
 import 'screens/home_page.dart';
@@ -13,27 +14,35 @@ class MyApp extends StatelessWidget {
 //    Locale myLocale = Localizations.localeOf(context);
     return MaterialApp(
 //      locale: Locale("en"),
-//      localizationsDelegates: [
-//        GlobalMaterialLocalizations.delegate,
-//        GlobalWidgetsLocalizations.delegate,
-//        GlobalCupertinoLocalizations.delegate,
-//      ],
-//      supportedLocales: [
-//        const Locale('en'), // English
-//        const Locale('ar'), // Arabic
-//      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English
+        const Locale('ar', 'EG'), // Arabic
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      // Returns a locale which will be used by the app
+      localeResolutionCallback: (locale, supportedLocales) {
+        // Check if the current device locale is supported
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+            return supportedLocale;
+          }
+        }
+        // If the locale of the device is not supported, use the first one
+        // from the list (English, in this case).
+        return supportedLocales.first;
+      },
       title: 'myLocale.toString()',
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xff000000),
         accentColor: Color(0xffEB1555),
         scaffoldBackgroundColor: Color(0xff212121),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MyHomePage(title: kTitle),
-        ResultsPage.routeName: (context) => ResultsPage(),
-      },
-//      home: MyHomePage(title: kTitle),
+      home: MyHomePage(title: kTitle),
     );
   }
 }
